@@ -1,7 +1,10 @@
 {
 	"functions": {
-	  "api/index.php": {
-		"runtime": "vercel-php-runtime@0.1.0"
-	  }
+		"api/index.php": {
+			"runtime": "vercel-php-runtime@0.1.0"
+		}
+	},
+	"engines": {
+		"node": "20.x"
 	}
-  }
+}
