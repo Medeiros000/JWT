@@ -1,4 +1,5 @@
 <?php
+include_once 'logs.php';
 
 function h_head(string $title, string $content = null)
 {

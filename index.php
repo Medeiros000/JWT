@@ -3,7 +3,7 @@
 session_start();
 
 
-include_once 'php/h-functions.php';
+include_once 'helpers/h-functions.php';
 
 echo h_head('Home');
 
