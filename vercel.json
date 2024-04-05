@@ -6,6 +6,7 @@
 			"use": "vercel-php@0.7.0",
 			"config": {
 				"includeFiles": [
+					"**",
 					"php/**"
 				]
 			}
@@ -15,6 +16,9 @@
 		{
 			"src": "/(.*)",
 			"dest": "index.php"
+		},
+		{
+			"src": "/(favicon.ico)"
 		}
 	]
 }
