@@ -21,6 +21,10 @@
 			"dest": "index.php"
 		},
 		{
+			"src": "/fetures(.php)",
+			"dest": "fetures.php"
+		},
+		{
 			"src": "/(favicon.ico)"
 		}
 	]
