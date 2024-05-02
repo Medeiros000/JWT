@@ -1,5 +1,7 @@
 <?php
 
+require_once 'h-functions.php';
+
 // Function to check if token is valid
 function validate_token()
 {

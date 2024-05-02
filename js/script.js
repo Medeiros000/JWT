@@ -1,4 +1,4 @@
-$().ready(function () {
+$().ready(() => {
 
 	let getStoredTheme = () => localStorage.getItem('theme');
 	let setStoredTheme = (theme) => localStorage.setItem('theme', theme);
@@ -10,14 +10,15 @@ $().ready(function () {
 				theme: theme_selected
 			},
 			success: function (response) {
-				console.log('Success! Theme: ' + theme_selected);
+				let responseObject = JSON.parse(response);
+				console.log(`Success! Theme: ${theme_selected} `+ responseObject.status);
 			},
 			error: function (error) {
 				console.log('Error: ' + error);
 			}
 		});
 	};
-	let toggleElement = (elem_eye, elem_input) => $(elem_eye).on('click', function () {
+	let toggleElement = (elem_eye, elem_input) => $(elem_eye).on('click', () => {
 		$(elem_eye).toggleClass('bi-eye-slash').toggleClass('bi-eye');
 		$(elem_input).attr('type') === 'password' ? $(elem_input).attr('type', 'text') : $(elem_input).attr('type', 'password');
 	});
@@ -34,7 +35,7 @@ $().ready(function () {
 	currentTheme === 'dark' ? $('#theme').html('').html('🌜') : $('#theme').html('').html('🌞');
 	currentTheme === 'dark' ? $('html').attr('data-bs-theme', 'dark') : $('html').attr('data-bs-theme', 'light');
 
-	$('#theme').click(function () {
+	$('#theme').click(() => {
 		let newTheme = getStoredTheme();
 		newTheme === 'dark' ? setStoredTheme('light') & theme('light') : setStoredTheme('dark') & theme('dark');
 		newTheme === 'dark' ? $('#theme').html('').html('🌞') : $('#theme').html('').html('🌜');
@@ -43,7 +44,7 @@ $().ready(function () {
 });
 
 function removeDiv(element, seconds) {
-	setTimeout(function () {
+	setTimeout(() => {
 		$(element).remove();
 	}, seconds * 1000);
 }

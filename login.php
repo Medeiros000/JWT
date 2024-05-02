@@ -51,8 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 				setcookie('token', "$header.$payload.$signature", (time() + (7 * 24 * 60 * 60)));
 
-				write_logs($row_user['name'] . ' logged in.');
-
 				header('Location: index.php');
 			} else {
 				$_SESSION['msg'] = h_alert('User or password incorrect.');
@@ -62,61 +60,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		}
 	}
 }
+echo h_head('Sign in', h_css('css/style.css'));
+echo h_open_body();
+echo h_header();
+
+$user = '';
+$password = '';
+if (isset($data)) {
+	$user = $data['user'];
+	$password = $data['password'];
+} else {
+	$user = 'jr@login.com';
+	$password = 'BAa1rQAnaDm8tLP';
+}
 ?>
 
-<?php echo h_head('Sign in', h_css('css/style.css')); ?>
-
-<body>
+<main class="form-signin mt-4 col-10 col-sm-4 mx-auto">
 	<?php
-	echo h_header();
-
-	$user = '';
-	$password = '';
-	if (isset($data)) {
-		$user = $data['user'];
-		$password = $data['password'];
-	} else {
-		$user = 'jr@login.com';
-		$password = 'BAa1rQAnaDm8tLP';
+	if (isset($_SESSION['msg'])) {
+		echo $_SESSION['msg'];
+		unset($_SESSION['msg']);
 	}
 	?>
+	<form method="POST" action="">
+		<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+		<div class="form-floating">
+			<input type="email" name="user" class="form-control mb-3" id="floatingInput" placeholder value="<?php echo $user ?>" required>
+			<label for="floatingInput">Email address</label>
+		</div>
+		<div class="form-floating">
+			<input type="password" name="password" class="form-control" id="floatingPassword" placeholder value="<?php echo $password ?>" autocomplete=off required>
+			<i class="bi bi-eye-slash p-3 position-absolute top-50 end-0 translate-middle-y" id="togglePasswordLogin"></i>
+			<label for="floatingPassword">Password</label>
+		</div>
+		<div class="form-check text-start my-3">
+			<input class="form-check-input" name="remember" type="checkbox" value="remember-me" id="flexCheckDefault">
+			<label class="form-check-label" for="flexCheckDefault">
+				Remember me
+			</label>
+		</div>
+		<div class="text-center mt-3">
+			<button class="btn btn-primary w-75 py-2" type="submit">Sign in</button>
+			<p class="mt-2 mb-0">Don't have an account? <a class="text-decoration-none" href="user-form.php">Register</a></p>
+			<p class="mb-2"> <a class="text-decoration-none" href="reset-pass.php">Forgot password?</a></p>
+		</div>
+	</form>
+</main>
 
-	<main class="form-signin mt-4 col-10 col-sm-4 mx-auto">
-		<?php
-		if (isset($_SESSION['msg'])) {
-			echo $_SESSION['msg'];
-			unset($_SESSION['msg']);
-		}
-		?>
-		<form method="POST" action="">
-			<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-			<div class="form-floating">
-				<input type="email" name="user" class="form-control mb-3" id="floatingInput" placeholder value="<?php echo $user ?>" required>
-				<label for="floatingInput">Email address</label>
-			</div>
-			<div class="form-floating">
-				<input type="password" name="password" class="form-control" id="floatingPassword" placeholder value="<?php echo $password ?>" autocomplete=off required>
-				<i class="bi bi-eye-slash p-3 position-absolute top-50 end-0 translate-middle-y" id="togglePasswordLogin"></i>
-				<label for="floatingPassword">Password</label>
-			</div>
-			<div class="form-check text-start my-3">
-				<input class="form-check-input" name="remember" type="checkbox" value="remember-me" id="flexCheckDefault">
-				<label class="form-check-label" for="flexCheckDefault">
-					Remember me
-				</label>
-			</div>
-			<div class="text-center mt-3">
-				<button class="btn btn-primary w-75 py-2" type="submit">Sign in</button>
-				<p class="mt-2 mb-0">Don't have an account? <a class="text-decoration-none" href="user-form.php">Register</a></p>
-				<p class="mb-2"> <a class="text-decoration-none" href="reset-pass.php">Forgot password?</a></p>
-			</div>
-		</form>
-	</main>
-
-	<?php
-	echo footer_theme();
-	echo script();
-	?>
-</body>
-
-</html>
+<?php
+echo footer_theme();
+echo script();
+echo h_close_body();
+echo h_close_html();
+?>

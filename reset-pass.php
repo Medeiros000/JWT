@@ -24,7 +24,6 @@ require_once 'helpers/connection.php';
 
 	// Get data from form
 	$data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-	write_logs(json_encode($data));
 	if (!empty($data['email'])) {
 
 		// Verify if user was in DB
@@ -39,7 +38,6 @@ require_once 'helpers/connection.php';
 
 		// Execute query
 		$stmt_user->execute();
-		write_logs($_SERVER['SERVER_NAME']);
 		if (($stmt_user) && ($stmt_user->rowCount() > 0)) {
 			$row_user = $stmt_user->fetch(PDO::FETCH_ASSOC);
 			$_SESSION['msg'] = h_alert('Check your email.');

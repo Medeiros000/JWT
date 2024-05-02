@@ -15,7 +15,7 @@ function h_head(string $title, string $content = null)
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
         ' . $content . '         
         <title>' . $title . '</title>
       </head>
@@ -41,6 +41,14 @@ function h_header(string $name = 'Guest')
       ';
 }
 
+function h_title(string $title)
+{
+  return  "
+      <div class='cover-container d-flex w-100 p-3 mx-auto mt-4 flex-column'>
+        <h1 class='text-center'>$title</h1>
+      </div>
+          ";
+}
 
 // Button to change theme
 function footer_theme()
@@ -88,4 +96,18 @@ function h_css(string $path)
 function h_js(string $path)
 {
 	return '<script src="' . $path . '"></script>';
+}
+
+function h_open_body()
+{
+  return '<body>';
+}
+
+function h_close_body()
+{
+  return '</body>';
+}
+
+function h_close_html() {
+	return '</html>';
 }

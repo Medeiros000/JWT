@@ -3,29 +3,47 @@
 	"builds": [
 		{
 			"src": "index.php",
-			"use": "vercel-php@0.7.0",
-			"config": {
-				"includeFiles": [
-					"**",
-					"img/**",
-					"css/**",
-					"js/**",
-					"helpers/**"
-				]
-			}
-		}
-	],
-	"routes": [
-		{
-			"src": "/(.*)",
-			"dest": "index.php"
+			"use": "vercel-php@0.7.0"
 		},
 		{
-			"src": "/fetures(.php)",
-			"dest": "fetures.php"
+			"src": "features.php",
+			"use": "vercel-php@0.7.0"
 		},
 		{
-			"src": "/(favicon.ico)"
+			"src": "contact.php",
+			"use": "vercel-php@0.7.0"
+		},
+		{
+			"src": "helpers/*.php",
+			"use": "vercel-php@0.7.0"
+		},
+		{
+			"src": "login.php",
+			"use": "vercel-php@0.7.0"
+		},
+		{
+			"src": "logout.php",
+			"use": "vercel-php@0.7.0"
+		},
+		{
+			"src": "user-form.php",
+			"use": "vercel-php@0.7.0"
+		},
+		{
+			"src": "reset-pass.php",
+			"use": "vercel-php@0.7.0"
+		},
+		{
+			"src": "js/*.js",
+			"use": "vercel-php@0.7.0"
+		},
+		{
+			"src": "css/*.css",
+			"use": "vercel-php@0.7.0"
+		},
+		{
+			"src": "favicon.ico",
+			"use": "vercel-php@0.7.0"
 		}
 	]
 }

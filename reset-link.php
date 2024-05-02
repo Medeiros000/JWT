@@ -30,7 +30,6 @@ require_once 'helpers/connection.php';
 	$email_user = $_SESSION['email'];
 	// Get data from form
 	$data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-	write_logs(json_encode($data));
 	if (!empty($data['password']) && !empty($data['confirm_password'])) {
 		if (preg_match('/^[-0-9a-zA-Z_]{8,}$/', $data['password']) == true) {
 			if ($data['password'] == $data['confirm_password']) {
