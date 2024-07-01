@@ -7,7 +7,12 @@
 		},
 		{
 			"src": "*.php",
-			"use": "vercel-php@0.7.0"
+			"use": "vercel-php@0.7.0",
+			"config": {
+			  "runtimeEnvironment": {
+				"auto_prepend_file": ".:/helpers/session_starter.php"
+			  }
+			}
 		},
 		{
 			"src": "js/*.js",
