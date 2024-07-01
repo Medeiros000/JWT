@@ -2,6 +2,10 @@
 	"version": 2,
 	"builds": [
 		{
+			"src": "helpers/*.php",
+			"use": "vercel-php@0.7.0"
+		},
+		{
 			"src": "*.php",
 			"use": "vercel-php@0.7.0"
 		},
