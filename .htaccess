@@ -1,2 +1,3 @@
-php_value auto_prepend_file "helpers/session_starter.php"
-php_value auto_prepend_file "helpers/h-functions.php"
+php_value include_path ".:/helpers"
+php_value auto_prepend_file "session_starter.php"
+php_value auto_prepend_file "h-functions.php"
