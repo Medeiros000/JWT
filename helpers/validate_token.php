@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once 'h-functions.php';
 
@@ -74,7 +75,7 @@ function token()
 	if (!validate_token()) {
 		if (isset($_SESSION['msg_token'])) {
 			$_SESSION['msg'] = $_SESSION['msg_token'];
-			unset($_SESSION['msg_token']);
+			// unset($_SESSION['msg_token']);
 		} else {
 			$_SESSION['msg'] = h_alert('You must log in first.');
 		}
