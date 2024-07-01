@@ -1,49 +1,16 @@
 {
-	"version": 2,
-	"builds": [
-		{
-			"src": "index.php",
-			"use": "vercel-php@0.7.0"
-		},
-		{
-			"src": "features.php",
-			"use": "vercel-php@0.7.0"
-		},
-		{
-			"src": "contact.php",
-			"use": "vercel-php@0.7.0"
-		},
-		{
-			"src": "helpers/*.php",
-			"use": "vercel-php@0.7.0"
-		},
-		{
-			"src": "login.php",
-			"use": "vercel-php@0.7.0"
-		},
-		{
-			"src": "logout.php",
-			"use": "vercel-php@0.7.0"
-		},
-		{
-			"src": "user-form.php",
-			"use": "vercel-php@0.7.0"
-		},
-		{
-			"src": "reset-pass.php",
-			"use": "vercel-php@0.7.0"
-		},
-		{
-			"src": "js/*.js",
-			"use": "vercel-php@0.7.0"
-		},
-		{
-			"src": "css/*.css",
-			"use": "vercel-php@0.7.0"
-		},
-		{
-			"src": "favicon.ico",
-			"use": "vercel-php@0.7.0"
+	"version": 3,
+	"functions": {
+		"api/**/*.php": {
+			"runtime": "vercel-php@0.7.0"
 		}
+	},
+	"routes": [
+		{ "src": "/(.*)", "dest": "/api/$1.php" }
+	],
+	"rewrites": [
+		{ "source": "/js/(.*)", "destination": "/js/$1" },
+		{ "source": "/css/(.*)", "destination": "/css/$1" },
+		{ "source": "/favicon.ico", "destination": "/favicon.ico" }
 	]
 }
