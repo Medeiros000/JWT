@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 		if (empty($_SESSION['msg'])) {
 			// Verify if user was in DB
-			$query_user = "INSERT INTO login.users (name, user, email, password) VALUES (?, ?, ?, ?)";
+			$query_user = "INSERT INTO users (name, user, email, password) VALUES (?, ?, ?, ?)";
 			$stmt_user = $conn->prepare($query_user);
 			$stmt_user->execute([$name, $email, $email, $password]);
 
