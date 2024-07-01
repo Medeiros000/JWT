@@ -1,8 +1,7 @@
 <?php
-
-session_start();
-
-// Clean redirect buffer
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 ob_start();
 
 include_once 'helpers/h-functions.php';

@@ -1,12 +1,15 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 ob_start();
 
-include_once 'helpers/h-functions.php';;
+include_once 'helpers/h-functions.php';
+require_once 'helpers/validate_token.php';
 
 echo h_head('Home');
 echo h_open_body();
-echo h_header();
+echo get_name() == 'Guest' ? h_header() : h_header(get_name());
 if (isset($_SESSION['msg'])) {
 	echo $_SESSION['msg'];
 	unset($_SESSION['msg']);

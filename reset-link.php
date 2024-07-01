@@ -1,8 +1,7 @@
 <?php
-// Start session
-session_start();
-
-// Clean redirect buffer
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 ob_start();
 
 // Includes validate_token.php file to verify if token is valid
