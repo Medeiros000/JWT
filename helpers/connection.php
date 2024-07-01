@@ -15,8 +15,8 @@ if (getenv('SERVERNAME') ?? null) {
 }
 echo $dbname;
 // Create connection
-// $conn = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username, $password);
+$conn = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username, $password);
 // Check connection
-// if (!$conn) {
-// 	die("Connection failed: ");
-// }
+if (!$conn) {
+	die("Connection failed: ");
+}
