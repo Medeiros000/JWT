@@ -44,6 +44,7 @@ $().ready(() => {
 });
 
 function removeDiv(element, seconds) {
+	console.log(`Removing element ${element} in ${seconds} seconds`);
 	setTimeout(() => {
 		$(element).remove();
 	}, seconds * 1000);
