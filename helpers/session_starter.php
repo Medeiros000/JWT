@@ -5,4 +5,5 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 $appendFile = $_SERVER['DOCUMENT_ROOT'] . '/h-functions.php';
+echo $appendFile;
 require_once($appendFile);
