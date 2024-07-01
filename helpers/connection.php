@@ -13,7 +13,7 @@ if (getenv('SERVERNAME') ?? null) {
 	$password = $config_password;
 	$dbname = $config_dbname;
 }
-echo $dbname;
+// echo $dbname;
 // Create connection
 $conn = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username, $password);
 // Check connection

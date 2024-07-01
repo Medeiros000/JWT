@@ -71,7 +71,7 @@ if (isset($data)) {
 	$password = $data['password'];
 } else {
 	$user = 'jr@login.com';
-	$password = 'BAa1rQAnaDm8tLP';
+	$password = 'BAa1rQAnaDm8tLP@';
 }
 ?>
 
