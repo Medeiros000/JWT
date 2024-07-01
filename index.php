@@ -1,8 +1,4 @@
 <?php
-ob_start();
-
-include_once 'helpers/h-functions.php';;
-
 echo h_head('Home');
 echo h_open_body();
 echo h_header();

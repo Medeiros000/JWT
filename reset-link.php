@@ -1,12 +1,6 @@
 <?php
-
-// Clean redirect buffer
-ob_start();
-
 // Includes validate_token.php file to verify if token is valid
-// and h-functions.php file to get tag functions
 include_once 'helpers/validate_token.php';
-include_once 'helpers/h-functions.php';
 require_once 'helpers/connection.php';
 
 ?>
