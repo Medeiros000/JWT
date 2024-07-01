@@ -1,7 +1,5 @@
 <?php
 
-// session_start();
-
 ob_start();
 
 // Includes validate_token.php file to verify if token is valid

@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 // Clean redirect buffer
 ob_start();
 
