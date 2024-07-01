@@ -1,5 +1,4 @@
 <?php
-echo $_SERVER['DOCUMENT_ROOT'];
 echo h_head('Home');
 echo h_open_body();
 echo h_header();

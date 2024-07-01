@@ -4,6 +4,6 @@ if (session_status() == PHP_SESSION_NONE) {
     ob_start();
 }
 
-$appendFile = $_SERVER['DOCUMENT_ROOT'] . '/helpers/h-functions.php';
+$appendFile = $_SERVER['DOCUMENT_ROOT'] . '/prjv/helpers/h-functions.php';
 echo $appendFile;
 require_once($appendFile);
