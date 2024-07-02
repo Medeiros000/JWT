@@ -27,7 +27,6 @@ function h_head(string $title, string $content = null)
 }
 function h_header(string $name = 'Guest')
 {
-  debug_jr($_SESSION, 'SESSION');
 	$page = isset($_COOKIE['token']) ? 'Logout' : 'Login';
 	return '
       <div class="cover-container d-flex w-100 p-3 mx-auto mt-4 flex-column">
@@ -126,7 +125,7 @@ function debug_jr($conteudo, $item = null)
 
 	echo '<pre style="text-align: start;">';
 	print('<p style="text-decoration:underline; margin-bottom: 0;">' . $linha . ' -> ' . basename($arquivo) . '</p>');
-  echo $item;
+  echo $item.'<br>';
 	print_r($conteudo);
 	echo "</pre>";
 }
