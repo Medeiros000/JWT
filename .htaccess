@@ -1,2 +1,0 @@
-# AllowOverride All
-# php_value auto_prepend_file "helpers/session_starter.php"

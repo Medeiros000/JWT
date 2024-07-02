@@ -2,33 +2,13 @@
 	"version": 2,
 	"builds": [
 		{
-			"src": "index.php",
+			"src": "helpers/(*.php)",
 			"use": "vercel-php@0.7.0"
 		},
 		{
-			"src": "features.php",
+			"src": "(*.php)",
 			"use": "vercel-php@0.7.0"
-		},
-		{
-			"src": "contact.php",
-			"use": "vercel-php@0.7.0"
-		},
-		{
-			"src": "/*.php",
-			"use": "vercel-php@0.7.0"
-		},
-		{
-			"src": "helpers/*.php",
-			"use": "vercel-php@0.7.0"
-		},
-		{
-			"src": "*.php",
-			"use": "vercel-php@0.7.0",
-			"config": {
-			  "runtimeEnvironment": {
-				"auto_prepend_file": ".:/helpers/session_starter.php"
-			  }
-			}
+
 		},
 		{
 			"src": "js/*.js",

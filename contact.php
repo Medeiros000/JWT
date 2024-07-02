@@ -3,7 +3,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 ob_start();
-
+require_once 'helpers/h-functions.php';
 include_once 'helpers/validate_token.php';
 
 token();
