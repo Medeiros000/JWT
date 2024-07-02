@@ -27,7 +27,7 @@ function h_head(string $title, string $content = null)
 }
 function h_header(string $name = 'Guest')
 {
-  debug_jr($_SESSION);
+  debug_jr($_SESSION, 'SESSION');
 	$page = isset($_COOKIE['token']) ? 'Logout' : 'Login';
 	return '
       <div class="cover-container d-flex w-100 p-3 mx-auto mt-4 flex-column">
@@ -117,15 +117,16 @@ function h_close_html() {
 	return '</html>';
 }
 
-function debug_jr($conteudo)
+function debug_jr($conteudo, $item = null)
 {
-  if(!DEBUG) return;
+  if(DEBUG == false) return;
 	$backtrace = debug_backtrace();
 	$linha = $backtrace[0]['line'];
 	$arquivo = $backtrace[0]['file'];
 
 	echo '<pre style="text-align: start;">';
 	print('<p style="text-decoration:underline; margin-bottom: 0;">' . $linha . ' -> ' . basename($arquivo) . '</p>');
+  echo $item;
 	print_r($conteudo);
 	echo "</pre>";
 }
