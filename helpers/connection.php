@@ -6,12 +6,11 @@ if (getenv('SERVERNAME') ?? null) {
 	$password = getenv('PASSWORD');
 	$dbname = getenv('DBNAME');
 } else {
-	require_once 'config.php';
-	$servername = $config_servername;
-	$username = $config_username;
-	$port = $config_port;
-	$password = $config_password;
-	$dbname = $config_dbname;
+	$servername = "127.0.0.1";
+	$username = "root";
+	$port = "3306";
+	$password = "";
+	$dbname = "login";
 }
 // echo $dbname;
 // Create connection

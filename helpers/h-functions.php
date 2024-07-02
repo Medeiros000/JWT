@@ -2,7 +2,8 @@
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
-include_once 'logs.php';
+require_once 'logs.php';
+require_once 'config.php';
 
 function h_head(string $title, string $content = null)
 {
@@ -26,6 +27,7 @@ function h_head(string $title, string $content = null)
 }
 function h_header(string $name = 'Guest')
 {
+  debug_jr($_SESSION);
 	$page = isset($_COOKIE['token']) ? 'Logout' : 'Login';
 	return '
       <div class="cover-container d-flex w-100 p-3 mx-auto mt-4 flex-column">
@@ -117,6 +119,7 @@ function h_close_html() {
 
 function debug_jr($conteudo)
 {
+  if(!DEBUG) return;
 	$backtrace = debug_backtrace();
 	$linha = $backtrace[0]['line'];
 	$arquivo = $backtrace[0]['file'];

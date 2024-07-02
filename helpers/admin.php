@@ -15,7 +15,4 @@ if (isset($_SESSION['msg_token'])) {
 	$_SESSION['msg'] = h_alert('You must log in first.');
 }
 debug_jr($_SERVER);
-foreach ($_SERVER as $key => $value) {
-	echo $key . ' => ' . $value . '<br>';
-}
 echo footer_theme();

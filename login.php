@@ -3,8 +3,8 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 ob_start();
-require_once 'helpers/h-functions.php';
-require_once 'helpers/connection.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/prjv/helpers/h-functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/prjv/helpers/connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$data = filter_input_array(INPUT_POST, FILTER_DEFAULT);

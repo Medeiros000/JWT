@@ -2,7 +2,6 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
 require_once 'h-functions.php';
 
 // Function to check if token is valid
