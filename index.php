@@ -10,7 +10,7 @@ echo h_head('Home');
 echo h_open_body();
 echo get_name() == 'Guest' ? h_header() : h_header(get_name());
 if (isset($_SESSION['msg'])) {
-	echo h_alert($_SESSION['msg']);
+	echo $_SESSION['msg'];
 	unset($_SESSION['msg']);
 }
 echo h_title('Home');
@@ -19,5 +19,3 @@ echo script();
 echo h_close_body();
 echo h_close_html();
 debug_jr($_SESSION, 'SESSION');
-debug_jr($_COOKIE, 'COOKIE');
-debug_jr($_ENV, 'ENV');
