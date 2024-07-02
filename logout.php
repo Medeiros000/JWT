@@ -4,6 +4,8 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 ob_start();
 include_once 'helpers/h-functions.php';
+
+require_once 'helpers/h-functions.php';
 require_once 'helpers/validate_token.php';
 
 // Delet cookie

@@ -3,12 +3,16 @@
 	"builds": [
 		{
 			"src": "helpers/(*.php)",
+			"src": "/(*.php)",
 			"use": "vercel-php@0.7.0"
 		},
 		{
 			"src": "(*.php)",
 			"use": "vercel-php@0.7.0"
 
+		},
+			"src": "helpers/(*.php)",
+			"use": "vercel-php@0.7.0"
 		},
 		{
 			"src": "js/*.js",
