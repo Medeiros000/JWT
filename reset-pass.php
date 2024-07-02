@@ -5,6 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 ob_start();
 
 // Includes validate_token.php file to verify if token is valid
+require_once 'helpers/h-functions.php';
 include_once 'helpers/validate_token.php';
 require_once 'helpers/connection.php';
 

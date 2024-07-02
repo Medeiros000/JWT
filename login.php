@@ -4,6 +4,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 ob_start();
 
+require_once 'helpers/h-functions.php';
 include_once 'helpers/connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
