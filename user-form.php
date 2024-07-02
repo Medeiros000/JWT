@@ -4,8 +4,8 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 ob_start();
 require_once 'helpers/h-functions.php';
-include_once 'helpers/validate_token.php';
-include_once 'helpers/connection.php';
+require_once 'helpers/validate_token.php';
+require_once 'helpers/connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
