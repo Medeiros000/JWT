@@ -114,3 +114,15 @@ function h_close_body()
 function h_close_html() {
 	return '</html>';
 }
+
+function debug_jr($conteudo)
+{
+	$backtrace = debug_backtrace();
+	$linha = $backtrace[0]['line'];
+	$arquivo = $backtrace[0]['file'];
+
+	echo '<pre style="text-align: start;">';
+	print('<p style="text-decoration:underline; margin-bottom: 0;">' . $linha . ' -> ' . basename($arquivo) . '</p>');
+	print_r($conteudo);
+	echo "</pre>";
+}
