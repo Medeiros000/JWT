@@ -5,7 +5,6 @@ if (session_status() == PHP_SESSION_NONE) {
 ob_start();
 
 include_once 'helpers/connection.php';
-include_once 'helpers/h-functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
