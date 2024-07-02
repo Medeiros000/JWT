@@ -1,4 +1,9 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+ob_start();
+
 include_once 'helpers/connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
