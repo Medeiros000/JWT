@@ -6,6 +6,10 @@
 			"use": "vercel-php@0.7.0"
 		},
 		{
+			"src": "helpers/*.php",
+			"use": "vercel-php@0.7.0"
+		},
+		{
 			"src": "js/*.js",
 			"use": "vercel-php@0.7.0"
 		},
@@ -21,6 +25,10 @@
 	"routes": [
 		{
 			"src": "/(.*)",
+			"dest": "/$1"
+		},
+		{
+			"src": "/helpers/(.*)",
 			"dest": "/$1"
 		}
 	]
