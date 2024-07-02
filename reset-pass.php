@@ -36,14 +36,14 @@ require_once 'helpers/connection.php';
 		$stmt_user->execute();
 		if (($stmt_user) && ($stmt_user->rowCount() > 0)) {
 			$row_user = $stmt_user->fetch(PDO::FETCH_ASSOC);
-			$_COOKIE['msg'] = h_alert('Check your email.');
+			$_SESSION['msg'] = h_alert('Check your email.');
 
 			// Generated link sent to email
 			$_SESSION['email'] = $row_user['email'];
 			unset($data); // Clear the variable for security reasons
 			header('Location: reset-link.php');
 		} else {
-			$_COOKIE['msg'] = h_alert('Email not found.');
+			$_SESSION['msg'] = h_alert('Email not found.');
 		}
 	}
 	?>
@@ -63,13 +63,13 @@ require_once 'helpers/connection.php';
 
 			<?php
 			// Verify if $SESSION['msg'] exists
-			if (isset($_COOKIE['msg'])) {
+			if (isset($_SESSION['msg'])) {
 
 				// Print $SESSION['msg']
-				echo $_COOKIE['msg'];
+				echo $_SESSION['msg'];
 
 				// Destroy $SESSION['msg']
-				unset($_COOKIE['msg']);
+				unset($_SESSION['msg']);
 			}
 
 			$user = '';

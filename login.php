@@ -16,11 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		if ($stmt_user->rowCount() > 0) {
 			$row_user = $stmt_user->fetch(PDO::FETCH_ASSOC);
 
-			$_COOKIE['msg'] = "<div id='fade-out' class='alert alert-success text-center' role='alert'>User found!</div>";
+			$_SESSION['msg'] = "<div id='fade-out' class='alert alert-success text-center' role='alert'>User found!</div>";
 			$_SESSION['name'] = $row_user['name'];
 
 			if (password_verify($data['password'], $row_user['password'])) {
-				$_COOKIE['msg'] = "<div id='fade-out' class='alert alert-success text-center' role='alert'>Connected!</div>";
+				$_SESSION['msg'] = "<div id='fade-out' class='alert alert-success text-center' role='alert'>Connected!</div>";
 
 				$header = [
 					'alg' => 'HS256',
@@ -54,10 +54,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 				header('Location: index.php');
 			} else {
-				$_COOKIE['msg'] = h_alert('User or password incorrect.');
+				$_SESSION['msg'] = h_alert('User or password incorrect.');
 			}
 		} else {
-			$_COOKIE['msg'] = h_alert('User or password incorrect.');
+			$_SESSION['msg'] = h_alert('User or password incorrect.');
 		}
 	}
 }
@@ -78,9 +78,9 @@ if (isset($data)) {
 
 <main class="form-signin mt-4 col-10 col-sm-4 mx-auto">
 	<?php
-	if (isset($_COOKIE['msg'])) {
-		echo $_COOKIE['msg'];
-		unset($_COOKIE['msg']);
+	if (isset($_SESSION['msg'])) {
+		echo $_SESSION['msg'];
+		unset($_SESSION['msg']);
 	}
 	?>
 	<form method="POST" action="">

@@ -18,7 +18,7 @@ require_once 'helpers/connection.php';
 	?>
 	<?php
 	if (!isset($_SESSION['email'])) {
-		$_COOKIE['msg'] = h_alert('Bad Request.');
+		$_SESSION['msg'] = h_alert('Bad Request.');
 		header('Location: login.php');
 		exit();
 	}
@@ -51,7 +51,7 @@ require_once 'helpers/connection.php';
 
 					if (($stmt_user) && ($stmt_user->rowCount() > 0)) {
 						$row_user = $stmt_user->fetch(PDO::FETCH_ASSOC);
-						$_COOKIE['msg'] = h_alert('Password changed.', 'success');
+						$_SESSION['msg'] = h_alert('Password changed.', 'success');
 
 						// Generated link sent to email
 						header('Location: login.php');
@@ -59,10 +59,10 @@ require_once 'helpers/connection.php';
 					}
 				}
 			} else {
-				$_COOKIE['msg'] = h_alert('Password\'s not equals.');
+				$_SESSION['msg'] = h_alert('Password\'s not equals.');
 			}
 		} else {
-			$_COOKIE['msg'] = h_alert('Password invalid.');
+			$_SESSION['msg'] = h_alert('Password invalid.');
 		}
 	}
 	?>
@@ -82,13 +82,13 @@ require_once 'helpers/connection.php';
 
 			<?php
 			// Verify if $SESSION['msg'] exists
-			if (isset($_COOKIE['msg'])) {
+			if (isset($_SESSION['msg'])) {
 
 				// Print $SESSION['msg']
-				echo $_COOKIE['msg'];
+				echo $_SESSION['msg'];
 
 				// Destroy $SESSION['msg']
-				unset($_COOKIE['msg']);
+				unset($_SESSION['msg']);
 			}
 
 			// For tests only
