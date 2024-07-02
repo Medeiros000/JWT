@@ -29,7 +29,7 @@ function validate_token()
 
 	// Verify if signature is valid
 	if ($signature !== $computed_signature) {
-		$_SESSION['msg_token'] = h_alert('Invalid or expired token...');
+		$_COOKIE['msg_token'] = h_alert('Invalid or expired token...');
 		return false;
 	}
 
@@ -41,7 +41,7 @@ function validate_token()
 
 	// Verify if token is expired
 	if ($data_token['exp'] <= time()) {
-		$_SESSION['msg_token'] = h_alert('Invalid or expired token...');
+		$_COOKIE['msg_token'] = h_alert('Invalid or expired token...');
 		setcookie('token');
 		return false;
 	}
@@ -74,11 +74,11 @@ function get_user()
 function token()
 {
 	if (!validate_token()) {
-		if (isset($_SESSION['msg_token'])) {
-			$_SESSION['msg'] = $_SESSION['msg_token'];
-			// unset($_SESSION['msg_token']);
+		if (isset($_COOKIE['msg_token'])) {
+			$_COOKIE['msg'] = $_COOKIE['msg_token'];
+			// unset($_COOKIE['msg_token']);
 		} else {
-			$_SESSION['msg'] = h_alert('You must log in first.');
+			$_COOKIE['msg'] = h_alert('You must log in first.');
 		}
 		// Redirect to index
 		header('Location: index.php');

@@ -20,25 +20,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		if (preg_match('/[a-zA-Z0-9]{5,}/', $data['name'])) {
 			$name = $data['name'];
 		} else {
-			$_SESSION['msg'] = h_alert('User entry incorrect...');
+			$_COOKIE['msg'] = h_alert('User entry incorrect...');
 		}
 		// Verify email
 		if (filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
 			$email = $data['email'];
 		} else {
-			$_SESSION['msg'] = h_alert('Email entry incorrect...');
+			$_COOKIE['msg'] = h_alert('Email entry incorrect...');
 		}
 		// Verify password
 		$p = $data['password'];
 		if (preg_match('/[a-z]/', $p) && preg_match('/[A-Z]/', $p) && preg_match('/[0-9]/', $p) && preg_match('/[@.#$!%*?&^]/', $p) && strlen($data['password']) >= 8) {
 			$password_ok = $data['password'];
 		} else {
-			$_SESSION['msg'] = h_alert('Password entry incorrect...');
+			$_COOKIE['msg'] = h_alert('Password entry incorrect...');
 		}
 
 		$password = password_hash($password_ok, PASSWORD_DEFAULT);
 
-		if (empty($_SESSION['msg'])) {
+		if (empty($_COOKIE['msg'])) {
 			// Verify if user was in DB
 			$query_user = "INSERT INTO users (name, user, email, password) VALUES (?, ?, ?, ?)";
 			$stmt_user = $conn->prepare($query_user);
@@ -74,13 +74,13 @@ if (isset($data)) {
 	<form class="m-3 py-2 pb-5 col-10 col-md-4 col-lg-3 mx-auto" method="post">
 		<?php
 		// Verify if $SESSION['msg'] exists
-		if (isset($_SESSION['msg'])) {
+		if (isset($_COOKIE['msg'])) {
 
 			// Print $SESSION['msg']
-			echo $_SESSION['msg'];
+			echo $_COOKIE['msg'];
 
 			// Destroy $SESSION['msg']
-			unset($_SESSION['msg']);
+			unset($_COOKIE['msg']);
 		}
 		?>
 		<h1 class="h3 mb-3 fw-normal">Please sign on</h1>
