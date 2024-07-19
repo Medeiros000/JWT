@@ -10,6 +10,31 @@ require_once 'helpers/connection.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
+	// Verify if user was in DB
+	$query_user = "SELECT id, name, user, email, password 
+						FROM users WHERE email = :email LIMIT 1";
+
+	// Prepare query
+	$stmt_user = $conn->prepare($query_user);
+
+	// Bind parameters
+	$stmt_user->bindParam(':email', $data['email']);
+
+	// Execute query
+	$stmt_user->execute();
+
+	if (($stmt_user) && ($stmt_user->rowCount() > 0)) {
+		$row_user = $stmt_user->fetch(PDO::FETCH_ASSOC);
+		$_SESSION['msg'] = h_alert('Email already registered.');
+
+		// Generated link sent to email
+		$_SESSION['email'] = $row_user['email'];
+		// unset($data); 
+		// Clear the variable for security reasons		
+	} else {
+		$_SESSION['msg'] = h_alert('Email not found.');
+	}
+
 	if (!empty($data['name']) && !empty($data['email']) && !empty($data['password'])) {
 		$name = '';
 		$email = '';

@@ -1,16 +1,9 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
-    session_start();
+	session_start();
 }
-echo 'session_status: ' . session_status() . '<br>' . PHP_EOL;
-echo match(session_status()) {
-	0 => '_DISABLED',
-	1 => '_NONE',
-	2 => '_ACTIVE',
-};
 require_once 'helpers/h-functions.php';
 require_once 'helpers/validate_token.php';
-var_dump($_SESSION);
 
 echo h_head('Home');
 echo h_open_body();
@@ -20,7 +13,16 @@ if ($_SESSION['msg'] ?? null) {
 	unset($_SESSION['msg']);
 }
 echo h_title('Home');
+?>
+
+<div class="content">
+	<p>System that uses jwt token and cookies at login and checks if the user is properly logged in.</p>
+	<p>Feel free to test the system.</p>
+</div>
+
+<?php
 echo footer_theme();
 echo script();
 echo h_close_body();
 echo h_close_html();
+?>

@@ -52,7 +52,7 @@ require_once 'helpers/connection.php';
 		<h1 class="text-center">Email to reset password</h1>
 	</div>
 	<!-- Feature section -->
-	<section class="col-10 col-md-4 mx-auto">
+	<section class="col-10 col-md-4 mx-auto rounded">
 		<p class="card p-3 border-0 h4 text-center bg-info-subtle">
 			If you have forgotten your password, enter your email address and we will send you a link to reset your password.
 		</p>
@@ -76,8 +76,8 @@ require_once 'helpers/connection.php';
 			$password = '';
 			if (isset($data)) {
 				$email = $data['email'];
-			} else { // Delete else, for tests only	
-				$email = 'teste@login.com';
+			} else { // If not set, set to empty
+				$email = '';
 			}
 			?>
 

@@ -1,5 +1,9 @@
 $(document).ready(function () {
-
+	// Check fields on load
+	$('#nameInput').val() == '' ? '' : check_rules_name('#nameInput');
+	$('#emailInput').val() == '' ? '' : check_rules_email('#emailInput');
+	$('#passwordInput').val() == '' ? '' : check_input_password('#passwordInput');
+	
 	// Prevent form submission
 	$('#form').on('submit', function (e) {
 		e.preventDefault();
@@ -22,9 +26,9 @@ $(document).ready(function () {
 	// Check if the username is valid
 	$('#nameInput').on('input', function () {
 		check_username = $(this).val();
-
+		check_username == '' ? $('#u-x').remove() : 
 		// Final check for username
-		!check_username.match(/^[a-zA-Z0-9]{5,}$/) ? $('#u-x').remove() & $('#u-v').remove() & $('#u-check').append('<i id="u-x" class="bi bi-x-circle-fill text-danger"></i>') & releaseButton() : $('#u-x').remove() & $('#u-v').remove() & $('#u-check').append('<i id="u-v" class="bi bi-check-circle-fill text-success"></i>') & releaseButton();
+		check_rules_name(this);
 	});
 
 	// Email onclick
@@ -41,10 +45,7 @@ $(document).ready(function () {
 		$('#emailInput').val('').val(check_email.toLowerCase());
 
 		// Final check for email
-		check_email.match(/[-a-z0-9_]{1,}[@]{1}[-a-z0-9]{1,}[.]{1}[-a-z0-9]/) ?
-			$('#e-x').remove() & $('#e-v').remove() & $('#e-check').append('<i id="e-v" class="bi bi-check-circle-fill text-success"></i>') & releaseButton()
-			:
-			$('#e-x').remove() & $('#e-v').remove() & $('#e-check').append('<i id="e-x" class="bi bi-x-circle-fill text-danger"></i>') & releaseButton();
+		check_rules_email(this);
 	});
 
 
@@ -68,20 +69,41 @@ $(document).ready(function () {
 
 	// Check if the password is strong enough
 	$('#passwordInput').on('input', function () {
-		check_password = $(this).val();
-		// console.log(check_password);
-		check_password.match(/[a-z]/) ? $('#pw-lwcs').addClass('btn-success').removeClass('btn-danger') : $('#pw-lwcs').addClass('btn-danger').removeClass('btn-success');
-		check_password.match(/[A-Z]/) ? $('#pw-upcs').addClass('btn-success').removeClass('btn-danger') : $('#pw-upcs').addClass('btn-danger').removeClass('btn-success');
-		check_password.match(/[0-9]/) ? $('#pw-n').addClass('btn-success').removeClass('btn-danger') : $('#pw-n').addClass('btn-danger').removeClass('btn-success');
-		check_password.match(/(?=.*[@.#$!%*?&^])/) ? $('#pw-sym').addClass('btn-success').removeClass('btn-danger') : $('#pw-sym').addClass('btn-danger').removeClass('btn-success');
-		check_password.length >= 8 ? $('#pw-lgth').addClass('btn-success').removeClass('btn-danger') : $('#pw-lgth').addClass('btn-danger').removeClass('btn-success');
-
-		// Final check for password
-		check_password.match(/[a-z]/) && check_password.match(/[A-Z]/) && check_password.match(/[0-9]/) && check_password.match(/[@.#$!%*?&^]/) && check_password.length >= 8 ?
-			$('#p-x').remove() & $('#p-v').remove() & $('#p-check').append('<i id="p-v" class="bi bi-check-circle-fill text-success"></i>') & releaseButton() :
-			$('#p-x').remove() & $('#p-v').remove() & $('#p-check').append('<i id="p-x" class="bi bi-x-circle-fill text-danger"></i>') & releaseButton();
+		check_input_password(this);
 	});
 });
+
+function check_rules_name(field) {
+	check_username = $(field).val();
+	!check_username.match(/^[a-zA-Z0-9]{5,}$/) ? $('#u-x').remove() & $('#u-v').remove() & $('#u-check').append('<i id="u-x" class="bi bi-x-circle-fill text-danger"></i>') & releaseButton() : $('#u-x').remove() & $('#u-v').remove() & $('#u-check').append('<i id="u-v" class="bi bi-check-circle-fill text-success"></i>') & releaseButton();
+}
+
+function check_input_password(field) {
+	check_password = $(field).val();
+	// console.log(check_password);
+	check_password.match(/[a-z]/) ? $('#pw-lwcs').addClass('btn-success').removeClass('btn-danger') : $('#pw-lwcs').addClass('btn-danger').removeClass('btn-success');
+	check_password.match(/[A-Z]/) ? $('#pw-upcs').addClass('btn-success').removeClass('btn-danger') : $('#pw-upcs').addClass('btn-danger').removeClass('btn-success');
+	check_password.match(/[0-9]/) ? $('#pw-n').addClass('btn-success').removeClass('btn-danger') : $('#pw-n').addClass('btn-danger').removeClass('btn-success');
+	check_password.match(/(?=.*[@.#$!%*?&^])/) ? $('#pw-sym').addClass('btn-success').removeClass('btn-danger') : $('#pw-sym').addClass('btn-danger').removeClass('btn-success');
+	check_password.length >= 8 ? $('#pw-lgth').addClass('btn-success').removeClass('btn-danger') : $('#pw-lgth').addClass('btn-danger').removeClass('btn-success');
+
+	check_rules_password(field);
+}
+
+function check_rules_password(field) {
+	check_password = $(field).val();
+	check_password.match(/[a-z]/) && check_password.match(/[A-Z]/) && check_password.match(/[0-9]/) && check_password.match(/[@.#$!%*?&^]/) && check_password.length >= 8 ?
+	$('#p-x').remove() & $('#p-v').remove() & $('#p-check').append('<i id="p-v" class="bi bi-check-circle-fill text-success"></i>') & releaseButton() :
+	$('#p-x').remove() & $('#p-v').remove() & $('#p-check').append('<i id="p-x" class="bi bi-x-circle-fill text-danger"></i>') & releaseButton();
+}
+
+function check_rules_email(field) {
+	check_email = $(field).val();
+	check_email.match(/[-a-z0-9_]{1,}[@]{1}[-a-z0-9]{1,}[.]{1}[-a-z0-9]/) ?
+	$('#e-x').remove() & $('#e-v').remove() & $('#e-check').append('<i id="e-v" class="bi bi-check-circle-fill text-success"></i>') & releaseButton()
+	:
+	$('#e-x').remove() & $('#e-v').remove() & $('#e-check').append('<i id="e-x" class="bi bi-x-circle-fill text-danger"></i>') & releaseButton();
+}
 
 // Release the submit button if all fields are valid
 function releaseButton() {
