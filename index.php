@@ -4,7 +4,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 require_once 'helpers/h-functions.php';
 require_once 'helpers/validate_token.php';
-debug_jr($_SESSION, 'SESSION');
+var_dump($_SESSION, 'SESSION');
 
 echo h_head('Home');
 echo h_open_body();
