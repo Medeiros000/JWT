@@ -1,4 +1,10 @@
 <?php
+echo 'session_status: ' . session_status() . '<br>' . PHP_EOL;
+echo match(session_status()) {
+	0 => '_DISABLED',
+	1 => '_NONE',
+	2 => '_ACTIVE',
+};
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
