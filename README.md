@@ -1,1 +1,1 @@
-# System that uses jwt token and cookies at login and checks if the user is properly logged in.
+# Login system that uses jwt token and cookies and checks whether the user is logged in correctly.

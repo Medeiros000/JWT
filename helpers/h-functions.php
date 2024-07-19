@@ -34,7 +34,7 @@ function h_header(string $name = 'Guest')
     <header class="mb-auto bg-secondary p-2 border border-5 rounded">
       <div class="header">
         <h3 class="mb-0">Dashboard ' . $name . '</h3>
-        <nav class="nav nav-masthead justify-content-center">
+        <nav class="nav nav-masthead">
           <a class="nav-link fw-bold py-1 px-1 link" aria-current="page" href="index.php">Home</a>
           <a class="nav-link fw-bold py-1 px-1 link" href="features.php">Features</a>
           <a class="nav-link fw-bold py-1 px-1 link" href="contact.php">Contact</a>

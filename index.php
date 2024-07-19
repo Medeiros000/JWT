@@ -16,7 +16,7 @@ echo h_title('Home');
 ?>
 
 <div class="content">
-	<p>System that uses jwt token and cookies at login and checks if the user is properly logged in.</p>
+	<p>Login system that uses jwt token and cookies and checks whether the user is logged in correctly.</p>
 	<p>Feel free to test the system.</p>
 </div>
 
