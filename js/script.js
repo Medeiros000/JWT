@@ -31,16 +31,16 @@ $().ready(() => {
 
 	let currentTheme = getStoredTheme();
 
-	currentTheme === 'dark' ? localStorage.setItem('theme', 'dark') : localStorage.setItem('theme', 'light');
-	currentTheme === 'dark' ? $('#theme').html('').html('🌜') : $('#theme').html('').html('🌞');
-	currentTheme === 'dark' ? $('html').attr('data-bs-theme', 'dark') : $('html').attr('data-bs-theme', 'light');
+	// currentTheme === 'dark' ? localStorage.setItem('theme', 'dark') : localStorage.setItem('theme', 'light');
+	// currentTheme === 'dark' ? $('#theme').html('').html('🌜') : $('#theme').html('').html('🌞');
+	// currentTheme === 'dark' ? $('html').attr('data-bs-theme', 'dark') : $('html').attr('data-bs-theme', 'light');
 
-	$('#theme').click(() => {
-		let newTheme = getStoredTheme();
-		newTheme === 'dark' ? setStoredTheme('light') & theme('light') : setStoredTheme('dark') & theme('dark');
-		newTheme === 'dark' ? $('#theme').html('').html('🌞') : $('#theme').html('').html('🌜');
-		newTheme === 'dark' ? $('html').removeAttr('data-bs-theme').attr('data-bs-theme', 'light') : $('html').removeAttr('data-bs-theme').attr('data-bs-theme', 'dark');
-	});
+	// $('#theme').click(() => {
+	// 	let newTheme = getStoredTheme();
+	// 	newTheme === 'dark' ? setStoredTheme('light') & theme('light') : setStoredTheme('dark') & theme('dark');
+	// 	newTheme === 'dark' ? $('#theme').html('').html('🌞') : $('#theme').html('').html('🌜');
+	// 	newTheme === 'dark' ? $('html').removeAttr('data-bs-theme').attr('data-bs-theme', 'light') : $('html').removeAttr('data-bs-theme').attr('data-bs-theme', 'dark');
+	// });
 });
 
 function removeDiv(element, seconds) {

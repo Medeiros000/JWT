@@ -1,6 +1,6 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
-    session_start();
+	session_start();
 }
 ob_start();
 require_once 'helpers/h-functions.php';
@@ -31,8 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$_SESSION['email'] = $row_user['email'];
 		// unset($data); 
 		// Clear the variable for security reasons		
-	} else {
-		$_SESSION['msg'] = h_alert('Email not found.');
 	}
 
 	if (!empty($data['name']) && !empty($data['email']) && !empty($data['password'])) {
@@ -68,6 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$query_user = "INSERT INTO users (name, user, email, password) VALUES (?, ?, ?, ?)";
 			$stmt_user = $conn->prepare($query_user);
 			$stmt_user->execute([$name, $email, $email, $password]);
+
+			$_SESSION['msg'] = h_alert('Registered successfully.', 'success');
 
 			// Redirect to index
 			header('Location: index.php');
@@ -171,7 +171,7 @@ if (isset($data)) {
 
 	<!-- Footer -->
 	<?php
-	echo footer_theme();
+	require_once 'footer.php';
 	// echo script();
 	?>
 	<script src="js/script.js"></script>

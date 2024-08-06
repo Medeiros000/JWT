@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		}
 	}
 }
-echo h_head('Sign in', h_css('css/style.css'));
+echo h_head('Sign in');
 echo h_open_body();
 echo h_header();
 
@@ -87,12 +87,12 @@ if (isset($data)) {
 		<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 		<div class="form-floating">
 			<input type="email" name="user" class="form-control mb-3" id="floatingInput" placeholder value="<?php echo $user ?>" required>
-			<label for="floatingInput">Email address</label>
+			<label for="floatingInput"><span>Email address</span></label>
 		</div>
 		<div class="form-floating">
 			<input type="password" name="password" class="form-control" id="floatingPassword" placeholder value="<?php echo $password ?>" autocomplete=off required>
 			<i class="bi bi-eye-slash p-3 position-absolute top-50 end-0 translate-middle-y" id="togglePasswordLogin"></i>
-			<label for="floatingPassword">Password</label>
+			<label for="floatingPassword"><span>Password</span></label>
 		</div>
 		<div class="form-check text-start my-3">
 			<input class="form-check-input" name="remember" type="checkbox" value="remember-me" id="flexCheckDefault">
@@ -109,7 +109,7 @@ if (isset($data)) {
 </main>
 
 <?php
-echo footer_theme();
+require_once 'footer.php';
 echo script();
 echo h_close_body();
 echo h_close_html();

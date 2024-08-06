@@ -1,0 +1,43 @@
+* {
+    color: #fff;
+}
+
+body {
+    background-color: #212529;
+}
+
+.form-floating>input {
+    color: #fff;
+    background-color: #212529;
+}
+
+.form-floating>input:active {
+    color: #fff;
+    background-color: #212529;
+}
+
+.form-floating>input:focus {
+    color: #fff;
+    background-color: #212529;
+}
+
+.form-floating>label {
+    color: #fff;
+    background-color: transparent;
+}
+
+.form-floating>label>span {
+    color: #fff;
+    background-color: #212529;
+}
+
+.form-floating>label::after {
+    display: none;
+    color: #fff;
+    background-color: #212529;
+}
+
+#flexCheckDefault {
+    color: #fff;
+    background-color: #212529;
+}

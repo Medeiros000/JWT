@@ -15,4 +15,4 @@ if (isset($_SESSION['msg_token'])) {
 	$_SESSION['msg'] = h_alert('You must log in first.');
 }
 debug_jr($_SERVER);
-echo footer_theme();
+require_once 'footer.php';

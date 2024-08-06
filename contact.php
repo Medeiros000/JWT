@@ -17,7 +17,7 @@ echo h_title('Contact');
     <p>Feel free to test the system.</p>
 </div>
 <?php
-echo footer_theme();
+require_once 'footer.php';
 echo script();
 echo h_close_body();
 echo h_close_html();

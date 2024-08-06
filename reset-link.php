@@ -127,7 +127,7 @@ require_once 'helpers/connection.php';
 	</main>
 
 	<?php
-	echo footer_theme();
+	require_once 'footer.php';
 	?>
 	<script src="js/script.js"></script>
 </body>

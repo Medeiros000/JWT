@@ -1,8 +1,13 @@
+* {
+	/* smooth animations */
+	transition: all 0.3s ease;
+}
 .link{
 	color: #fff;
 }
 .link:hover{
-	color: #afafaf;
+	color: #4d4d4d;
+	filter: drop-shadow(0 0 0.5rem #ffffff);
 }
 
 .header nav {
@@ -56,6 +61,74 @@
 /* media screen mobile */
 @media screen and (max-width: 600px) {
 	.content {
-		width: 90%;
+		width: 90%;.link{
+			color: #fff;
+		}
+		.link:hover{
+			color: #afafaf;
+		}
+		
+		.link:active{
+			color: #afafaf;
+		}
+		
+		.header nav {
+			/* border: 1px solid red; */
+			width: fit-content;
+			margin: 0 0 0 auto;
+		}
+		
+		.btn-group p {
+			font-size: 0.6rem;
+		}
+		
+		#nameInput:focus,
+		#emailInput:focus,
+		#passwordInput:focus,
+		#floatingInput,
+		#floatingPassword {
+			/* border-color: white; */
+			box-shadow: 0 0 0 0;
+		}
+		
+		.content {
+			height: fit-content;
+			width: 70%;
+			margin: 0 auto;
+			text-align: center;
+			border: 1px solid red;
+			border-radius: 0.8rem;
+		}
+		
+		.content p {
+			font-family: 'Roboto', sans-serif;
+			font-size: 1.2rem;
+			padding: 1rem;
+			margin: 0;
+		}
+		
+		.content span {
+			font-family: 'Roboto', sans-serif;
+			font-size: 1.2rem;
+			padding: 1rem;
+			margin: 0;
+		}
+		
+		.links {
+			/* border: 1px solid red; */
+			width: fit-content;
+			margin: 0 auto;
+		}
+
+		#theme > span {
+			font-size: 2rem;
+		}
+		
+		/* media screen mobile */
+		@media screen and (max-width: 600px) {
+			.content {
+				width: 90%;
+			}
+		}
 	}
 }

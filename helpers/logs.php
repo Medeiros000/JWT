@@ -18,6 +18,15 @@ function write_logs($msg)
 	$log = "[$date]-[file: $d_file | line: $d_line]-[$user]-[$msg]" . PHP_EOL;
 	// File name
 	$log_file = date('Y-m-d') . '_logs.txt';
+	// create if not exists
+	if (!file_exists("logs")) {
+		mkdir("logs", 0777, true);
+	}
+	// create file if not exists
+	if (!file_exists("logs/$log_file")) {
+		$file = fopen("logs/$log_file", 'w');
+		fclose($file);
+	}
 	// Open file
 	$file = fopen("logs/$log_file", 'a');
 	// Write in file

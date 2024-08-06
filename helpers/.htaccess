@@ -2,4 +2,14 @@
 Options -Indexes
 
 # Deny access to all files in this directory
-Deny from all
+# Deny from all
+
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "connection.php">
+    Order Allow,Deny
+    Deny from all
+</Files>

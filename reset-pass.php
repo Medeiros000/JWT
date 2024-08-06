@@ -96,7 +96,7 @@ require_once 'helpers/connection.php';
 	</main>
 
 	<?php
-	echo footer_theme();
+	require_once 'footer.php';
 	echo script();
 	?>
 </body>
